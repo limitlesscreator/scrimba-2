@@ -1,25 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import React, {useEffect, useState} from "react";
+import axios from "axios";
+import {Weather} from "./Components/weather";
+import {Counter} from "./Components/counter";
+import {counterReducer} from "./reducers/counterReducer";
+import {useSelector} from "react-redux";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+   return (
+       <div>
+           <Weather/>
+           <Counter/>
+       </div>
+   )
 }
 
 export default App;
+
