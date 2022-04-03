@@ -16,3 +16,4 @@ export const rootReducer = combineReducers({
     games: gameReducer,
     user: userReducer
 })
+
