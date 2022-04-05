@@ -24,4 +24,4 @@ export const rootReducer = combineReducers({
     posts: postsReducer
 })
 
-// 5:28
+// 5:29

@@ -9,49 +9,16 @@ import {rootReducer} from "./reducers";
 import thunk from "redux-thunk";
 import {logger} from "redux-logger/src";
 import axios from "axios";
+import {fetchMiddleWare} from "./actions/fetchPosts";
 
 const composeEnchancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-const myLogger = (store) => (next) => (action) => {
-    // console.log('middleware run')
-    return next(action)
-}
-const secondMiddleware = (store) => (next) => (action) => {
-    console.log('second middleware run')
-    return next(action)
-}
 
-const capAtTen = store => next => action => {
-    console.log('third middleware')
-    if (store.getState().user === 10) {
-        return next({type: 'DECREMENT'})
-    }
-    next(action)
-}
-// const middleWareSecond = (store) => {
-//     // without 'next' and 'action' our action object gonna die in middleware
-//     return (next) => {
-//         return (action) => {
-//             console.log('middle ware ran')
-//             return next(action)
-//         }
-//     }
-// }
 
-const fetchMiddleWare = state => next => async action => {
-    console.log('it works')
-    const data = await axios.get('https://jsonplaceholder.typicode.com/posts')
-    return next({...action, payload: data.data})
-}
 
 const store = createStore(
     rootReducer,
-    composeEnchancer(applyMiddleware(thunk,
-        myLogger,
-        secondMiddleware,
-        capAtTen,
-        fetchMiddleWare,
-    ))
+    composeEnchancer(applyMiddleware(thunk))
 )
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
@@ -61,3 +28,4 @@ root.render(<Provider store={store}>
 
 reportWebVitals();
 
+// 9:38
