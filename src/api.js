@@ -21,5 +21,11 @@ const nextYear = `${currentYear + 1}-${currentMonth}-${currentDay}`
 
 //Popular 10 games from last year to current day by rating
 const popular_games = `${base_url}games?key=${process.env.REACT_APP_REWG_API}&dates=${lastYear},${currentDate}&ordering=-rating&page_size=10`
+const upcoming_games = `${base_url}games?key=${process.env.REACT_APP_REWG_API}&dates=${currentDate},${nextYear}&ordering=-added&page_size=10`
+const newGames = `${base_url}games?key=${process.env.REACT_APP_REWG_API}&dates=${lastYear},${currentDate}&ordering=-released&page_size=10`
+
 export const popularGamesURL = () => popular_games
+export const upcomingGamesURL = () => upcoming_games
+export const newGamesURL = () => newGames
+console.log(upcomingGamesURL())
 

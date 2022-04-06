@@ -20,8 +20,8 @@ const counterReducer = (state = initState, action) => {
 
 export const rootReducer = combineReducers({
     games: gameReducer,
-    user: counterReducer,
-    posts: postsReducer
+    // user: counterReducer,
+    // posts: postsReducer
 })
 
 // 5:29
