@@ -32,6 +32,34 @@ export const Home = () => {
                     )
                 })}
             </Games>
+            <h2>Popular</h2>
+            <Games>
+                {popular.map(game => {
+                    return (
+                        <Game
+                            name={game.name}
+                            released={game.released}
+                            id={game.id}
+                            image={game.background_image}
+                            key={game.id}
+                        />
+                    )
+                })}
+            </Games>
+            <h2>New Games</h2>
+            <Games>
+                {newGames.map(game => {
+                    return (
+                        <Game
+                            name={game.name}
+                            released={game.released}
+                            id={game.id}
+                            image={game.background_image}
+                            key={game.id}
+                        />
+                    )
+                })}
+            </Games>
         </GameList>
     )
 }
