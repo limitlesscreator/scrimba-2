@@ -27,5 +27,7 @@ const newGames = `${base_url}games?key=${process.env.REACT_APP_REWG_API}&dates=$
 export const popularGamesURL = () => popular_games
 export const upcomingGamesURL = () => upcoming_games
 export const newGamesURL = () => newGames
-console.log(upcomingGamesURL())
+
+// Game Details
+export const gameDetailsURL = (game_id) => `${base_url}games/${game_id}?key=${process.env.REACT_APP_REWG_API}`
 

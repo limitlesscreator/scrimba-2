@@ -4,12 +4,19 @@ import {useDispatch, useSelector} from 'react-redux'
 // Animations
 import styled from 'styled-components'
 import {motion} from 'framer-motion'
+import {loadDetail} from "../actions/detailAciton";
 
-export const Game = ({name, released, image}) => {
+export const Game = ({name, released, image, id}) => {
 
+    const dispatch = useDispatch()
+
+    const loadDetailHandler = () => {
+        console.log(loadDetail(id))
+        dispatch(loadDetail(id))
+    }
 
     return (
-        <StyledGame>
+        <StyledGame onClick={loadDetailHandler}>
             <h3>{name}</h3>
             <p>{released}</p>
             <img src={image} alt={name}/>
@@ -17,7 +24,7 @@ export const Game = ({name, released, image}) => {
     );
 };
 
-const StyledGame= styled(motion.div)`
+const StyledGame = styled(motion.div)`
 min-height: 30vh;
 box-shadow: 0px 5px 25px rgba(0,0,0,0.1);
 img{width: 100%};
