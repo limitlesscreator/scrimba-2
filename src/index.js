@@ -4,17 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {createStore, applyMiddleware, compose} from "redux";
-import {Provider, useSelector} from "react-redux";
+import {Provider} from "react-redux";
 import {rootReducer} from "./reducers";
 import thunk from "redux-thunk";
-import {logger} from "redux-logger/src";
-import axios from "axios";
-import {fetchMiddleWare} from "./actions/fetchPosts";
 
 const composeEnchancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-
-
-
 
 const store = createStore(
     rootReducer,
@@ -28,4 +22,3 @@ root.render(<Provider store={store}>
 
 reportWebVitals();
 
-// 9:38

@@ -4,6 +4,7 @@ import {loadGames} from "../actions/gamesAction";
 import {motion} from 'framer-motion'
 import styled from 'styled-components'
 import {Game} from "../Components/Game";
+import {GameDetail} from "../Components/GameDetail";
 
 
 export const Home = () => {
@@ -18,6 +19,7 @@ export const Home = () => {
     console.log(popular)
     return (
         <GameList>
+            <GameDetail/>
             <h2>Upcoming Games</h2>
             <Games>
                 {upcoming.map(game => {

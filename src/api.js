@@ -31,3 +31,7 @@ export const newGamesURL = () => newGames
 // Game Details
 export const gameDetailsURL = (game_id) => `${base_url}games/${game_id}?key=${process.env.REACT_APP_REWG_API}`
 
+// Game ScreenShots
+export const gameScreenshotURL = (game_id) => `${base_url}games/${game_id}/screenshots?key=${process.env.REACT_APP_REWG_API}`
+
+
