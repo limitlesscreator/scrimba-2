@@ -9,39 +9,35 @@ import {useSelector} from 'react-redux'
 export const GameDetail = () => {
     // Data
     const {screen, game} = useSelector(state => state.detail)
-    console.log(game,screen)
+    console.log(game, screen)
 
     return (
         <CardShadow>
             <Detail>
-                <div className={'card-shadow'}>
-                    <div className={'detail'}>
-                        <div className={'stats'}>
-                            <div className={'rating'}>
-                                <h3>{game.name}</h3>
-                                <p>Rating: {game.rating}</p>
-                            </div>
-                            <div className={'info'}>
-                                <h3>Platforms</h3>
-                                <div className={'platforms'}>
-                                    {game.platforms.map(data => (
-                                        <h3 key={data.platform.id}>{data.platform.name}</h3>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                        <div className={'media'}>
-                            <img src={game.background_img} alt=""/>
-                        </div>
-                        <div className={'description'}>
-                            <p>{game.description.raw}</p>
-                        </div>
-                        <div className={'gallery'}>
-                            {screen.results.map(screen => (
-                                <img src={screen.image} key={screen.id} alt="game"/>
-                            ))}
-                        </div>
+                <Stats>
+                    <div className={'rating'}>
+                        <h3>{game.name}</h3>
+                        <p>Rating: {game.rating}</p>
                     </div>
+                    <Info>
+                        <h3>Platforms</h3>
+                        <Platforms>
+                            {game.platforms.map(data => (
+                                <h3 key={data.platform.id}>{data.platform.name}</h3>
+                            ))}
+                        </Platforms>
+                    </Info>
+                </Stats>
+                <Media>
+                    <img src={game.background_image} alt=""/>
+                </Media>
+                <Description>
+                    <p>{game.description_raw}</p>
+                </Description>
+                <div className={'gallery'}>
+                    {screen.results.map(screen => (
+                        <img src={screen.image} key={screen.id} alt="game"/>
+                    ))}
                 </div>
             </Detail>
         </CardShadow>
@@ -78,4 +74,31 @@ const Detail = styled(motion.div)`
   img{
     width: 100%;
   }
+`;
+
+const Stats = styled(motion.div)`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+const Info = styled(motion.div)`
+  text-align: center;
+`;
+const Platforms = styled(motion.div)`
+  display: flex;
+  justify-content: space-evenly;
+  img {
+    margin-left: 3rem;
+  }
+`;
+
+const Media = styled(motion.div)`
+  margin-top: 5rem;
+  img {
+    width: 100%;
+  }
+`;
+
+const Description = styled(motion.div)`
+  margin: 5rem 0rem;
 `;

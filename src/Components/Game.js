@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import styled from 'styled-components'
 import {motion} from 'framer-motion'
 import {loadDetail} from "../actions/detailAciton";
+import {Link} from "react-router-dom";
 
 export const Game = ({name, released, image, id}) => {
 
@@ -17,9 +18,11 @@ export const Game = ({name, released, image, id}) => {
 
     return (
         <StyledGame onClick={loadDetailHandler}>
-            <h3>{name}</h3>
-            <p>{released}</p>
-            <img src={image} alt={name}/>
+            <Link to={`/game/${id}`}>
+                <h3>{name}</h3>
+                <p>{released}</p>
+                <img src={image} alt={name}/>
+            </Link>
         </StyledGame>
     );
 };

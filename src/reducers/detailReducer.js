@@ -1,8 +1,7 @@
-const initialState = {game: {}, screen:{}}
+const initialState = {game: {platforms: []}, screen: {results: []}}
 
 export const detailReducer = (state = initialState, action) => {
     switch (action.type) {
-        // I FOUND THE BAG!!! NOT TYPES, THERE IS A TYPE!!
         case "GET_DETAIL":
             console.log('detailReducer: work')
             return {
