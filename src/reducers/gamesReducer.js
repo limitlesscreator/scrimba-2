@@ -2,6 +2,7 @@ const initState = {
     popular: [],
     newGames: [],
     upcoming: [],
+    isLoading: false
 }
 
 export const gameReducer = (state = initState, action) => {
@@ -10,8 +11,14 @@ export const gameReducer = (state = initState, action) => {
             return {...state,
                 popular: action.payload.popular,
                 upcoming: action.payload.upcoming,
-                newGames: action.payload.newGames
+                newGames: action.payload.newGames,
+                isLoading: false
             }
+        case "LOADING_GAMES":
+            return {
+                ...state, isLoading: true
+            }
+
         default:
             return {...state}
     }

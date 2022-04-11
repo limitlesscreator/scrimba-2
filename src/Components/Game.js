@@ -6,22 +6,25 @@ import styled from 'styled-components'
 import {motion} from 'framer-motion'
 import {loadDetail} from "../actions/detailAciton";
 import {Link} from "react-router-dom";
+import {smallImage} from "../util";
 
 export const Game = ({name, released, image, id}) => {
 
     const dispatch = useDispatch()
 
     const loadDetailHandler = () => {
+        document.body.style.overflow = 'hidden '
+        document.body.style.paddingRight = '0.5rem'
         console.log(loadDetail(id))
         dispatch(loadDetail(id))
     }
 
     return (
-        <StyledGame onClick={loadDetailHandler}>
+        <StyledGame layoutId={Number(id)}  onClick={loadDetailHandler}>
             <Link to={`/game/${id}`}>
-                <h3>{name}</h3>
+                <motion.h3 layoutId={`title ${Number(id)}`}>{name}</motion.h3>
                 <p>{released}</p>
-                <img src={image} alt={name}/>
+                <motion.img layoutId={`image ${Number(id)}`} src={smallImage(image,640)} alt={name}/>
             </Link>
         </StyledGame>
     );

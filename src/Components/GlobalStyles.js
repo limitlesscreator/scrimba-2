@@ -2,7 +2,7 @@ import {createGlobalStyle} from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
     *{
-    margin: 0x;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
     }
@@ -37,5 +37,8 @@ export const GlobalStyles = createGlobalStyle`
     a{
         text-decoration: none;
         color: #333;
+    }
+    img{
+        display: block;
     }
 `

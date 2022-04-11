@@ -5,42 +5,64 @@ import {motion} from 'framer-motion'
 
 //Redux
 import {useSelector} from 'react-redux'
+import {useNavigate} from 'react-router-dom'
+import {smallImage} from "../util";
 
-export const GameDetail = () => {
+export const GameDetail = ({pathId}) => {
+    const navigate = useNavigate()
+    console.log(navigate)
+    console.log(pathId)
     // Data
-    const {screen, game} = useSelector(state => state.detail)
+    const {screen, game, isLoading} = useSelector(state => state.detail)
     console.log(game, screen)
 
+    //Exit
+    const exitDetailHandler = (e) => {
+        const element = e.target
+        // the element which we are click on
+        console.log(element)
+        if(element.classList.contains('shadow')){
+            document.body.style.overflow = 'auto'
+            document.body.style.paddingRight = '0px'
+            navigate('/')
+            console.log('work')
+        }
+    }
+
     return (
-        <CardShadow>
-            <Detail>
-                <Stats>
-                    <div className={'rating'}>
-                        <h3>{game.name}</h3>
-                        <p>Rating: {game.rating}</p>
-                    </div>
-                    <Info>
-                        <h3>Platforms</h3>
-                        <Platforms>
-                            {game.platforms.map(data => (
-                                <h3 key={data.platform.id}>{data.platform.name}</h3>
-                            ))}
-                        </Platforms>
-                    </Info>
-                </Stats>
-                <Media>
-                    <img src={game.background_image} alt=""/>
-                </Media>
-                <Description>
-                    <p>{game.description_raw}</p>
-                </Description>
-                <div className={'gallery'}>
-                    {screen.results.map(screen => (
-                        <img src={screen.image} key={screen.id} alt="game"/>
-                    ))}
-                </div>
-            </Detail>
-        </CardShadow>
+       <>
+           {!isLoading && (
+               <CardShadow className={'shadow'} onClick={exitDetailHandler}>
+                   <Detail layoutId={Number(pathId)}>
+                       <Stats>
+                           <div className={'rating'}>
+                               <motion.h3 layoutId={`title ${Number(pathId)}`}>{game.name}</motion.h3>
+                               <p>Rating: {game.rating}</p>
+                           </div>
+                           <Info>
+                               <h3>Platforms</h3>
+                               <Platforms>
+                                   {game.platforms.map(data => (
+                                       <h3 key={data.platform.id}>{data.platform.name}</h3>
+                                   ))}
+                               </Platforms>
+                           </Info>
+                       </Stats>
+                       <Media>
+                           <motion.img layoutId={`image ${Number(pathId)}`} src={smallImage(game.background_image, 1280)} alt=""/>
+                       </Media>
+                       <Description>
+                           <p>{game.description_raw}</p>
+                       </Description>
+                       <div className={'gallery'}>
+                           {screen.results.map(screen => (
+                               <img src={smallImage(screen.image,1280)} key={screen.id} alt="game"/>
+                           ))}
+                       </div>
+                   </Detail>
+               </CardShadow>
+           )}
+       </>
     );
 };
 
@@ -102,3 +124,4 @@ const Media = styled(motion.div)`
 const Description = styled(motion.div)`
   margin: 5rem 0rem;
 `;
+

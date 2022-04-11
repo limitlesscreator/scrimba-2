@@ -3,6 +3,7 @@ import axios from "axios";
 
 //Action creator
 export const loadGames = () => async (dispatch) => {
+    dispatch({type: "LOADING_GAMES"})
     //Fetch Axios
     const popularGames = await axios.get(popularGamesURL())
     const newGamesData = await axios.get(newGamesURL())
