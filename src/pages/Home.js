@@ -14,7 +14,6 @@ export const Home = () => {
     //get the current location
     const location = useLocation()
     const pathId = location.pathname.split('/')[2]
-    console.log(pathId)
 
     //Fetch games
     const dispatch = useDispatch()
@@ -23,14 +22,31 @@ export const Home = () => {
     }, [dispatch])
 
     //get that data
-    const {popular, newGames, upcoming, isLoading} = useSelector(state => state.games)
-    console.log(popular)
+    const {popular, newGames, upcoming, isLoading,searched} = useSelector(state => state.games)
     return (
         <>
             {!isLoading ? (
                 <GameList>
                     <AnimateSharedLayout type={'crossfade'}>
                         <AnimatePresence>{pathId && <GameDetail pathId={Number(pathId)}/>}</AnimatePresence>
+                        {searched.length ? (
+                            <div>
+                                <h2>Searched Games</h2>
+                                <Games>
+                                    {searched.map(game => {
+                                        return (
+                                            <Game
+                                                name={game.name}
+                                                released={game.released}
+                                                id={game.id}
+                                                image={game.background_image}
+                                                key={game.id}
+                                            />
+                                        )
+                                    })}
+                                </Games>
+                            </div>
+                        ) : null}
                         <h2>Upcoming Games</h2>
                         <Games>
                             {upcoming.map(game => {
