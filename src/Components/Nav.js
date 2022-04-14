@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import {motion} from "framer-motion";
-import logo from "../img/logo.svg";
+import {ReactComponent as LogoFire} from "../img/logo.svg";
 import styled from "styled-components"
 import {useDispatch} from "react-redux";
 import {fetchSearch} from "../actions/gamesAction";
+import {fadeIn} from "../animations";
 
 export const Nav = () => {
     const dispatch = useDispatch()
@@ -24,9 +25,9 @@ export const Nav = () => {
     }
 
     return (
-        <StyledNav>
+        <StyledNav variants={fadeIn} initial={'hidden'} animate={'show'}>
             <Logo>
-                <img src={logo} alt="logo"/>
+                <LogoFire className={'fire'}/>
                 <h1 onClick={clearSearchGames}>Ignite</h1>
             </Logo>
             <form className="search">
@@ -58,6 +59,9 @@ const StyledNav = styled(motion.nav)`
     background: #ff7676;
     color: white;
   }
+  .fire{
+  color: white;
+  fill: #ff0a0a;}
 `;
 
 const Logo = styled(motion.div)`
@@ -69,4 +73,6 @@ const Logo = styled(motion.div)`
     height: 2rem;
     width: 2rem;
   }
+  h1{
+  color: ghostwhite;}
 `;

@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 import {loadGames} from "../actions/gamesAction";
 import {motion, AnimatePresence} from 'framer-motion'
 import styled from 'styled-components'
@@ -7,6 +7,7 @@ import {Game} from "../Components/Game";
 import {GameDetail} from "../Components/GameDetail";
 import {useLocation} from "react-router";
 import {AnimateSharedLayout} from "framer-motion";
+import {fadeIn} from "../animations";
 // import * as ReactRouterDOM from "react-router";
 
 
@@ -25,8 +26,8 @@ export const Home = () => {
     const {popular, newGames, upcoming, isLoading,searched} = useSelector(state => state.games)
     return (
         <>
-            {!isLoading ? (
-                <GameList>
+            {!isLoading && (
+                <GameList variants={fadeIn} initial={'hidden'} animate={'show'} >
                     <AnimateSharedLayout type={'crossfade'}>
                         <AnimatePresence>{pathId && <GameDetail pathId={Number(pathId)}/>}</AnimatePresence>
                         {searched.length ? (
@@ -91,17 +92,16 @@ export const Home = () => {
                         </Games>
                     </AnimateSharedLayout>
                 </GameList>
-            ) : <div style={{fontSize: '280px',}}>
-                Loading
-            </div>}
+            )}
         </>
     )
 }
 
 const GameList = styled(motion.div)`
     padding: 0rem 5rem;
-    h3 {
+    h2 {
     padding: 1rem 0rem;
+    color: ghostwhite;
     }
 `
 
