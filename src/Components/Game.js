@@ -6,8 +6,8 @@ import styled from 'styled-components'
 import {motion} from 'framer-motion'
 import {loadDetail} from "../actions/detailAciton";
 import {Link} from "react-router-dom";
-import {smallImage} from "../util";
 import {popup} from "../animations";
+import {smallImage} from "../util";
 
 export const Game = ({name, released, image, id}) => {
 
@@ -36,6 +36,7 @@ min-height: 30vh;
 box-shadow: 0px 5px 25px rgba(0,0,0,0.1);
 img{width: 100%};
 text-align: center;
+background: #072a47;
 border-radius: 1rem; 
 overflow: hidden;
 h3{

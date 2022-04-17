@@ -15,7 +15,6 @@ export const Home = () => {
     //get the current location
     const location = useLocation()
     const pathId = location.pathname.split('/')[2]
-
     //Fetch games
     const dispatch = useDispatch()
     useEffect(() => {
