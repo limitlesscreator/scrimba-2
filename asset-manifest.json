@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/scrimba-2/static/css/main.c2420c03.css",
-    "main.js": "/scrimba-2/static/js/main.1d062f15.js",
+    "main.css": "/scrimba-2/static/css/main.65cdfab7.css",
+    "main.js": "/scrimba-2/static/js/main.5ea861a5.js",
     "static/js/787.df3fde51.chunk.js": "/scrimba-2/static/js/787.df3fde51.chunk.js",
     "static/media/steam.svg": "/scrimba-2/static/media/steam.d7b8819f879421dc2f25a3474964687d.svg",
     "static/media/playstation.svg": "/scrimba-2/static/media/playstation.18cc4b9ca49a92b00bb7958e88c5b9ad.svg",
@@ -11,12 +11,12 @@
     "static/media/nintendo.svg": "/scrimba-2/static/media/nintendo.f579be0450cff9bf18cd4b3371f79436.svg",
     "static/media/apple.svg": "/scrimba-2/static/media/apple.5757c37e1a2b3d89e03deb9212a997e8.svg",
     "static/media/logo.svg": "/scrimba-2/static/media/logo.9b6b8655566296b0edaa86ec3dbac3a0.svg",
-    "main.c2420c03.css.map": "/scrimba-2/static/css/main.c2420c03.css.map",
-    "main.1d062f15.js.map": "/scrimba-2/static/js/main.1d062f15.js.map",
+    "main.65cdfab7.css.map": "/scrimba-2/static/css/main.65cdfab7.css.map",
+    "main.5ea861a5.js.map": "/scrimba-2/static/js/main.5ea861a5.js.map",
     "787.df3fde51.chunk.js.map": "/scrimba-2/static/js/787.df3fde51.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c2420c03.css",
-    "static/js/main.1d062f15.js"
+    "static/css/main.65cdfab7.css",
+    "static/js/main.5ea861a5.js"
   ]
 }
